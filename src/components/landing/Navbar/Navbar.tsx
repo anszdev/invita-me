@@ -5,11 +5,11 @@ import clsx from "clsx";
 import { NavLink } from "./NavLink";
 
 const navbarLinks = [
-  { href: "/", label: "Servicios" },
-  { href: "/", label: "Planes" },
-  { href: "/", label: "FAQ" },
-  { href: "/", label: "Nuestros diseños" },
-  { href: "/", label: "Contacto" },
+  { href: "#", label: "Servicios" },
+  { href: "#", label: "Planes" },
+  { href: "#", label: "FAQ" },
+  { href: "#", label: "Nuestros diseños" },
+  { href: "#", label: "Contacto" },
 ];
 
 export function Navbar() {
@@ -17,6 +17,10 @@ export function Navbar() {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleCloseMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -35,11 +39,12 @@ export function Navbar() {
           "max-w-[50rem] bg-dark mx-auto top-[7.2rem] sticky rounded-[3rem] p-10 transition-opacity duration-300 flex flex-wrap gap-3.5 justify-center h-[21.88rem]",
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
+        onClick={handleCloseMenu}
       >
         {isOpen && (
           <>
             {navbarLinks.map(({ href, label }, i) => (
-              <NavLink href={href} delay={i * 0.02}>
+              <NavLink key={label} href={href} delay={i * 0.02}>
                 {label}
               </NavLink>
             ))}
