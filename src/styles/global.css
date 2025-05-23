@@ -19,6 +19,23 @@
   --color-accent-blue: var(--accent-blue);
   --color-accent-green: var(--acent-green);
   --font-sans: var(--font-nunito-sans);
+
+  --animate-jump-above: jump-above 0.7s ease-in-out both;
+
+  @keyframes jump-above {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 }
 
 body {
