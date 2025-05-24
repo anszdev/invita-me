@@ -12,7 +12,7 @@ export function NavLink({ href, children, delay, animate }: Props) {
     <a
       href={href}
       className={clsx(
-        "flex justify-center items-center font-black bg-light text-3xl uppercase p-4 md:p-6 h-24 md:h-32 rounded-3xl hover:bg-thin transition-colors duration-300 ease-linear hover:text-primary",
+        "flex justify-center items-center font-black bg-light text-2xl uppercase p-4 md:p-6 h-24 md:h-32 rounded-3xl hover:bg-primary transition-colors duration-300 ease-linear hover:text-thin",
         animate ? "animate-jump-above" : ""
       )}
       style={{ animationDelay: `${delay}s` }}
