@@ -1,1 +1,52 @@
 @import "tailwindcss";
+
+:root {
+  --inv-bg-light: #f9f9fb;
+  --inv-bg-dark: #2c2c35;
+
+  --inv-primary: #a259ff;
+  --inv-secondary: #429de0;
+  --inv-tertiary: #ec4899;
+
+  --inv-text-light: #f2f2f5;
+  --inv-text-dark: #2e2e33;
+
+  --inv-neutral: #d4d7dd;
+}
+
+@theme {
+  --color-inv-bg-light: var(--inv-bg-light);
+  --color-inv-bg-dark: var(--inv-bg-dark);
+  --color-inv-primary: var(--inv-primary);
+  --color-inv-secondary: var(--inv-secondary);
+  --color-inv-tertiary: var(--inv-tertiary);
+  --color-inv-text-light: var(--inv-text-light);
+  --color-inv-text-dark: var(--inv-text-dark);
+  --color-inv-neutral: var(--inv-neutral);
+
+  --animate-fade-in: fade-in 0.2s ease-in-out both;
+
+  @keyframes fade-in {
+    from {
+      scale: 0.9;
+      opacity: 0;
+    }
+    to {
+      scale: 1;
+      opacity: 1;
+    }
+  }
+}
+
+body {
+  background: var(--inv-bg-light);
+  color: var(--inv-text-dark);
+}
+
+.menu_show {
+  @apply opacity-100;
+}
+
+.menu_hide {
+  @apply opacity-0 pointer-events-none;
+}
