@@ -1,0 +1,94 @@
+<script>
+  import clsx from "clsx";
+
+  import Menu from "@common/icons/Menu.svelte";
+  import Instagram from "@common/icons/Instagram.svelte";
+  import Whatsapp from "@common/icons/Whatsapp.svelte";
+  import Mail from "@common/icons/Mail.svelte";
+  import Close from "@common/icons/Close.svelte";
+
+  let openMenu = $state(false);
+
+  const menuItems = [
+    {
+      href: "#prices",
+      label: "Diseños",
+    },
+    {
+      href: "#prices",
+      label: "Planes",
+    },
+    {
+      href: "#prices",
+      label: "FAQ",
+    },
+    {
+      href: "#prices",
+      label: "Contacto",
+    },
+  ];
+
+  const toggleMenu = () => {
+    openMenu = !openMenu;
+  };
+
+  const closeMenu = () => {
+    openMenu = false;
+  };
+</script>
+
+<div class="relative group">
+  <button
+    class={clsx(
+      "flex justify-center items-center gap-1.5 text-lg cursor-pointer py-2.5 px-6 rounded-xl font-medium",
+      openMenu ? "-z-10" : "z-10"
+    )}
+    onclick={toggleMenu}
+  >
+    Menú <Menu size="32" />
+  </button>
+
+  <!-- Open menu -->
+  <div
+    class={clsx(
+      "absolute bottom-0 right-0 rounded-xl transition-all duration-300 ease-in-out",
+      openMenu
+        ? "z-50 w-[23rem] bg-inv-primary p-8 origin-bottom-right h-[28.4rem]"
+        : "-z-10 w-full bg-inv-primary/20 group-hover:scale-[1.10] h-full cursor-pointer"
+    )}
+  >
+    <div
+      class={clsx(
+        "text-inv-text-light transition-opacity",
+        openMenu ? "opacity-100 delay-200" : "opacity-0 pointer-events-none"
+      )}
+    >
+      <header class="flex justify-between items-center">
+        <h1 class="text-2xl font-semibold">
+          🪅Invita.<span class="font-light">me</span>
+        </h1>
+        <button class="cursor-pointer hover" onclick={closeMenu}>
+          <Close size="32" />
+        </button>
+      </header>
+      <ul class="flex flex-col gap-y-3 my-12 text-5xl font-medium">
+        {#snippet menuItem(href, label)}
+          <a
+            class="block hover:ml-3.5 transition-[margin-left] duration-200"
+            {href}>{label}</a
+          >
+        {/snippet}
+        {#each menuItems as item}
+          <li>
+            {@render menuItem(item.href, item.label)}
+          </li>
+        {/each}
+      </ul>
+      <footer class="flex justify-between items-center">
+        <a href="#prices"><Instagram size="34" /></a>
+        <a href="#prices"><Whatsapp size="34" /></a>
+        <a href="#prices"><Mail size="34" /></a>
+      </footer>
+    </div>
+  </div>
+</div>
