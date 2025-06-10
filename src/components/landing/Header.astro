@@ -1,0 +1,48 @@
+---
+import Container from "@common/Container.astro";
+import Image from "astro/components/Image.astro";
+
+const categories = [
+  { event: "Boda", img: "boda" },
+  { event: "Xv Años", img: "xv" },
+  { event: "Cumpleaños", img: "cumple" },
+  { event: "Y muchos más...", img: "otros" },
+];
+---
+
+<header class="text-center py-5">
+  <section class="mt-12">
+    <Container>
+      <div class="grid grid-cols-4 gap-7">
+        {
+          categories.map((category) => (
+            <a
+              href="#"
+              class="overflow-hidden rounded-2xl hover:rotate-3 transition-transform ease-in-out duration-300 relative shadow-card"
+            >
+              <Image
+                width={500}
+                height={500}
+                class="w-full h-full object-cover"
+                src={`/img/${category.img}.webp`}
+                alt={category.event}
+                loading="lazy"
+              />
+              <div class="absolute inset-0 from-transparent via-transparent to-black/80 bg-gradient-to-b flex flex-col justify-end items-start p-5">
+                <h3 class="text-2xl font-semibold text-inv-text-light/90">
+                  {category.event}
+                </h3>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </Container>
+  </section>
+  <div class="max-w-3xl mx-auto mt-16">
+    <h1 class="font-semibold text-7xl mb-3">🪅Invita.me</h1>
+    <h2 class="font-semibold text-6xl">
+      Todo gran plan empieza con una gran invitación.
+    </h2>
+  </div>
+</header>
