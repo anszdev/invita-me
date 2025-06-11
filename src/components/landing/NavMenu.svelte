@@ -51,15 +51,15 @@
   <!-- Open menu -->
   <div
     class={clsx(
-      "absolute bottom-0 right-0 rounded-xl transition-all duration-300 ease-in-out",
+      "absolute bottom-0 right-0 rounded-xl transition-all duration-300 ease-in-out-back overflow-hidden",
       openMenu
-        ? "z-50 w-[23rem] bg-inv-primary p-8 origin-bottom-right h-[28.4rem]"
-        : "-z-10 w-full bg-inv-primary/20 group-hover:scale-[1.10] h-full cursor-pointer"
+        ? "z-50 w-[23rem] bg-inv-tertiary origin-bottom-right h-[29.7rem]"
+        : "-z-10 w-full bg-inv-tertiary/20 group-hover:scale-[1.10] h-full cursor-pointer"
     )}
   >
     <div
       class={clsx(
-        "text-inv-text-light transition-opacity",
+        "text-inv-text-light transition-opacity p-8 bg-[url('/src/assets/bg-menu.svg')] bg-cover h-full",
         openMenu ? "opacity-100 delay-200" : "opacity-0 pointer-events-none"
       )}
     >
@@ -67,28 +67,41 @@
         <h1 class="text-2xl font-semibold">
           🪅Invita.<span class="font-light">me</span>
         </h1>
-        <button class="cursor-pointer hover" onclick={closeMenu}>
+        <button
+          class="cursor-pointer hover:bg-inv-neutral/30 rounded-xl p-1 transition-colors duration-300 ease-in-out"
+          onclick={closeMenu}
+        >
           <Close size="32" />
         </button>
       </header>
       <ul class="flex flex-col gap-y-3 my-12 text-5xl font-medium">
-        {#snippet menuItem(href, label)}
-          <a
-            class="block hover:ml-3.5 transition-[margin-left] duration-200"
-            {href}>{label}</a
-          >
-        {/snippet}
         {#each menuItems as item}
           <li>
             {@render menuItem(item.href, item.label)}
           </li>
         {/each}
       </ul>
-      <footer class="flex justify-between items-center">
-        <a href="#prices"><Instagram size="34" /></a>
-        <a href="#prices"><Whatsapp size="34" /></a>
-        <a href="#prices"><Mail size="34" /></a>
+      <footer class="flex justify-between items-cente">
+        {@render socialIcon(Instagram, "#prices")}
+        {@render socialIcon(Whatsapp, "#prices")}
+        {@render socialIcon(Mail, "#prices")}
       </footer>
     </div>
   </div>
 </div>
+
+{#snippet menuItem(href, label)}
+  <a class="block hover:ml-3.5 transition-[margin-left] duration-200" {href}
+    >{label}</a
+  >
+{/snippet}
+
+{#snippet socialIcon(icon, href)}
+  <a
+    {href}
+    class="cursor-pointer hover:bg-inv-neutral/30 rounded-xl p-1.5 transition-colors duration-300 ease-in-out"
+  >
+    <!-- svelte-ignore svelte_component_deprecated -->
+    <svelte:component this={icon} size="32" />
+  </a>
+{/snippet}
