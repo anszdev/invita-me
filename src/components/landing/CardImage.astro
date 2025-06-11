@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  img: string;
+  event: string;
+}
+
+const { img, event } = Astro.props;
+---
+
+<a
+  href="#"
+  class="overflow-hidden rounded-2xl hover:rotate-3 transition-transform ease-in-out duration-300 relative shadow-card"
+>
+  <Image
+    width={500}
+    height={500}
+    class="w-full h-full object-cover aspect-[3/4]"
+    src={`/img/${img}.webp`}
+    alt={event}
+    loading="lazy"
+  />
+  <div
+    class="absolute inset-0 from-transparent via-transparent to-black/80 bg-gradient-to-b flex flex-col justify-end items-start p-5"
+  >
+    <h3 class="text-2xl font-semibold text-inv-text-light">{event}</h3>
+  </div>
+</a>

@@ -1,0 +1,40 @@
+---
+import Container from "@common/Container.astro";
+import Image from "astro/components/Image.astro";
+import CardImage from "./CardImage.astro";
+
+const categories = [
+  { event: "Boda", img: "boda" },
+  { event: "Xv Años", img: "xv" },
+  { event: "Cumpleaños", img: "cumple" },
+  { event: "Y muchos más...", img: "otros" },
+];
+---
+
+<header class="text-center py-5 relative">
+  <div class="absolute inset-0 -z-10 grid grid-cols-2">
+    <div class="bg-[url('/src/assets/bg.svg')]">
+      <div class="from-transparent to-inv-bg-light bg-gradient-to-br h-full">
+      </div>
+    </div>
+    <div
+      class="from-inv-primary/30 via-inv-primary/25 to-inv-primary/15 bg-gradient-to-l blur-3xl h-1/2"
+    >
+    </div>
+  </div>
+  <section class="mt-12">
+    <Container>
+      <div class="grid grid-cols-4 gap-7">
+        {categories.map((category) => <CardImage {...category} />)}
+      </div>
+    </Container>
+  </section>
+  <div class="max-w-3xl mx-auto mt-16">
+    <h1 class="font-semibold text-7xl mb-3">
+      🪅Invita.<span class="font-light">me</span>
+    </h1>
+    <h2 class="font-semibold text-6xl">
+      Todo gran plan empieza con una gran invitación.
+    </h2>
+  </div>
+</header>

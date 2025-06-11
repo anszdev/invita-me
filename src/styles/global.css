@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+:root {
+  --inv-bg-light: #f9f9fb;
+  --inv-bg-dark: #2c2c35;
+
+  --inv-primary: #a259ff;
+  --inv-secondary: #429de0;
+  --inv-tertiary: #ec4899;
+
+  --inv-text-light: #f2f2f5;
+  --inv-text-dark: #2e2e33;
+
+  --inv-neutral: #d4d7dd;
+}
+
+@theme {
+  --color-inv-bg-light: var(--inv-bg-light);
+  --color-inv-bg-dark: var(--inv-bg-dark);
+  --color-inv-primary: var(--inv-primary);
+  --color-inv-secondary: var(--inv-secondary);
+  --color-inv-tertiary: var(--inv-tertiary);
+  --color-inv-text-light: var(--inv-text-light);
+  --color-inv-text-dark: var(--inv-text-dark);
+  --color-inv-neutral: var(--inv-neutral);
+  
+  --shadow-card: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
+  --ease-in-out-back: cubic-bezier(0.86,0,0.07,1);
+}
+
+body {
+  background: var(--inv-bg-light);
+  color: var(--inv-text-dark);
+}
