@@ -1,13 +1,24 @@
 ---
+import Container from "../common/Container.astro";
 import NavMenu from "./NavMenu.svelte";
 ---
 
-<nav class="flex justify-between max-w-7xl mx-auto py-3.5">
-  <a
-    href="/"
-    class="text-4xl hover:scale-[1.15] transition-transform ease-in-out duration-200 will-change-transform"
+<div class="relative">
+  <div
+    class="absolute inset-0 -z-10 w-1/2 h-64 from-inv-primary/25 via-inv-primary/15 to-inv-primary/10 blur-3xl -top-full bg-radial"
   >
-    <h1 class="font-semibold">🪅Invita.<span class="font-light">me</span></h1>
-  </a>
-  <NavMenu client:only="true" />
-</nav>
+  </div>
+  <Container>
+    <nav class="flex justify-between py-3.5">
+      <a
+        href="/"
+        class="text-4xl hover:scale-[1.15] transition-transform ease-in-out duration-200 will-change-transform"
+      >
+        <h1 class="font-semibold">
+          🪅Invita.<span class="font-light">me</span>
+        </h1>
+      </a>
+      <NavMenu client:only="true" />
+    </nav>
+  </Container>
+</div>
