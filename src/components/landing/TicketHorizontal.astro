@@ -1,0 +1,44 @@
+---
+import clsx from "clsx";
+import CodeQR from "@assets/qr.svg";
+
+type Props = {
+  title: string;
+  description: string;
+  class?: string;
+};
+
+const { title, description, class: className } = Astro.props;
+---
+
+<article
+  class={clsx(
+    "flex w-[625px] rounded-2xl overflow-hidden h-auto cursor-pointer hover:-translate-y-3 transition-transform ease-in-out-back-2 duration-300 will-change-transform",
+    className
+  )}
+  data-card="horizontal"
+>
+  <aside class="p-6 grid place-items-center relative text-current">
+    <p
+      class="font-semibold text-9xl absolute rotate-90 -right-[13.2rem] bottom-0 text-current/15 -z-10"
+    >
+      Invita.<span class="font-light">me</span>
+    </p>
+    <slot name="icon" />
+  </aside>
+  <div
+    class="w-6 h-60 bg-inv-bg-light mask-[url('/src/assets/rounded-separator.svg')] mask-repeat-y mask-size-[80%_16px] [mask-composite:exclude]"
+  >
+  </div>
+  <div class="px-7 py-9">
+    <div class="flex justify-between">
+      <h4 class="font-black text-3xl">{title}</h4>
+      <div>
+        <CodeQR class="size-12" />
+      </div>
+    </div>
+    <p class="font-medium text-xl mt-3 text-pretty">
+      {description}
+    </p>
+  </div>
+</article>
