@@ -1,0 +1,22 @@
+---
+import Container from "../common/Container.astro";
+import { EVENT_CATEGORIES } from "@utils/staticData";
+import CardImage from "./CardImage.astro";
+---
+
+<section class="py-28">
+  <Container>
+    <h2 class="font-semibold text-6xl">
+      Elige Tu Próxima <span class="text-inv-tertiary font-bold"
+        >Celebración</span
+      >:
+    </h2>
+    <div class="grid grid-cols-3 gap-9 mt-24">
+      {
+        EVENT_CATEGORIES.map((category) => (
+          <CardImage {...category} href="#" textSize="text-6xl" />
+        ))
+      }
+    </div>
+  </Container>
+</section>
