@@ -1,14 +1,7 @@
 ---
 import Container from "@common/Container.astro";
-import Image from "astro/components/Image.astro";
 import CardImage from "./CardImage.astro";
-
-const categories = [
-  { event: "Boda", img: "boda" },
-  { event: "Xv Años", img: "xv" },
-  { event: "Cumpleaños", img: "cumple" },
-  { event: "Y muchos más...", img: "otros" },
-];
+import { EVENT_CATEGORIES } from "@utils/staticData";
 ---
 
 <header class="text-center py-5 relative">
@@ -25,7 +18,17 @@ const categories = [
   <section class="mt-12">
     <Container>
       <div class="grid grid-cols-4 gap-7">
-        {categories.map((category) => <CardImage {...category} />)}
+        {
+          EVENT_CATEGORIES.map((category) => (
+            <CardImage {...category} href="#" hoverEffect="rotate" />
+          ))
+        }
+        <CardImage
+          event="Y muchos más..."
+          img="otros"
+          href="#"
+          hoverEffect="rotate"
+        />
       </div>
     </Container>
   </section>
