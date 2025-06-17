@@ -1,0 +1,22 @@
+---
+import Container from "@components/common/Container.astro";
+import Section from "./Section.astro";
+
+import { FAQS } from "@utils/staticData";
+---
+
+<Section>
+  <Container>
+    <h2 class="font-semibold text-6xl text-center">Preguntas Frecuentes</h2>
+    <div class="columns-2">
+      {
+        FAQS.map(({ answer, question }) => (
+          <details>
+            <summary>{question}</summary>
+            <p>{answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </Container>
+</Section>

@@ -1,12 +1,13 @@
 ---
 import Container from "@common/Container.astro";
 import Check from "@assets/check.svg";
-import Ticket from "./Ticket.astro";
+import Ticket from "../Ticket.astro";
+import Section from "./Section.astro";
 
 import { CONTENT_INVITATION } from "@utils/staticData";
 ---
 
-<section class="py-28 relative">
+<Section>
   <div class="absolute inset-0 -z-10 grid grid-cols-2">
     <div></div>
     <div class="bg-[url('/src/assets/bg.svg')] grid-rows-2 relative">
@@ -77,4 +78,4 @@ import { CONTENT_INVITATION } from "@utils/staticData";
       </article>
     </div>
   </Container>
-</section>
+</Section>

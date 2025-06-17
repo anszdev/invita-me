@@ -1,5 +1,5 @@
 ---
-import TicketHorizontal from "./TicketHorizontal.astro";
+import TicketHorizontal from "../TicketHorizontal.astro";
 
 import Container from "@common/Container.astro";
 import Question from "@assets/question.svg";
@@ -7,9 +7,10 @@ import Devices from "@assets/devices.svg";
 import Design from "@assets/design.svg";
 import Sheet from "@assets/sheet.svg";
 import Cursor from "@assets/cursor.svg";
+import Section from "./Section.astro";
 ---
 
-<section class="py-28">
+<Section>
   <Container>
     <div class="text-center max-w-4xl mx-auto">
       <h2
@@ -64,7 +65,7 @@ import Cursor from "@assets/cursor.svg";
       <p class="font-medium text-xl">Pasa el cursor</p>
     </div>
   </Container>
-</section>
+</Section>
 <script>
   const $cards: NodeListOf<HTMLDivElement> = document.querySelectorAll(
     "[data-card='horizontal']",

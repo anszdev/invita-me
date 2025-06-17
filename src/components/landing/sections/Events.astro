@@ -1,10 +1,11 @@
 ---
-import Container from "../common/Container.astro";
+import Container from "@common/Container.astro";
+import CardImage from "../CardImage.astro";
 import { EVENT_CATEGORIES } from "@utils/staticData";
-import CardImage from "./CardImage.astro";
+import Section from "./Section.astro";
 ---
 
-<section class="py-28 relative">
+<Section>
   <div class="absolute inset-0 -z-10 grid grid-cols-2">
     <div class="bg-[url('/src/assets/bg.svg')] grid-rows-2">
       <div class="from-transparent to-inv-bg-light bg-radial h-full"></div>
@@ -34,4 +35,4 @@ import CardImage from "./CardImage.astro";
       </p>
     </div>
   </Container>
-</section>
+</Section>
