@@ -1,10 +1,11 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Navbar from "@components/landing/Navbar.astro";
-import Header from "@components/landing/Header.astro";
-import WhyUs from "@components/landing/WhyUs.astro";
-import Events from "@/components/landing/Events.astro";
-import Prices from "@/components/landing/Prices.astro";
+import Header from "@components/landing/sections/Header.astro";
+import WhyUs from "@components/landing/sections/WhyUs.astro";
+import Events from "@/components/landing/sections/Events.astro";
+import Prices from "@/components/landing/sections/Prices.astro";
+import Questions from "@/components/landing/sections/Questions.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -16,4 +17,5 @@ import Prices from "@/components/landing/Prices.astro";
   <WhyUs />
   <Events />
   <Prices />
+  <Questions />
 </Layout>
