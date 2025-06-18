@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 :root {
+  interpolate-size: allow-keywords;
+
   --inv-bg-light: #f9f9fb;
   --inv-bg-dark: #2c2c35;
 
