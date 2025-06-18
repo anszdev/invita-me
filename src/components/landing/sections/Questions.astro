@@ -1,6 +1,7 @@
 ---
 import Container from "@components/common/Container.astro";
 import Section from "./Section.astro";
+import Details from "../Details.astro";
 
 import { FAQS } from "@utils/staticData";
 ---
@@ -8,15 +9,21 @@ import { FAQS } from "@utils/staticData";
 <Section>
   <Container>
     <h2 class="font-semibold text-6xl text-center">Preguntas Frecuentes</h2>
-    <div class="columns-2">
-      {
-        FAQS.map(({ answer, question }) => (
-          <details>
-            <summary>{question}</summary>
-            <p>{answer}</p>
-          </details>
-        ))
-      }
+    <div class="grid grid-cols-2 gap-8 mt-16">
+      <div class="flex flex-col gap-9">
+        {
+          FAQS.slice(0, 3).map(({ answer, question }) => (
+            <Details title={question} content={answer} />
+          ))
+        }
+      </div>
+      <div class="flex flex-col gap-9">
+        {
+          FAQS.slice(3, 7).map(({ answer, question }) => (
+            <Details title={question} content={answer} />
+          ))
+        }
+      </div>
     </div>
   </Container>
 </Section>

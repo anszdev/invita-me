@@ -19,7 +19,7 @@ export const FAQS = [
   {
     question: "¿Cuánto tiempo tarda en entregarse mi invitación?",
     answer:
-      "El tiempo de entrega depende del plan que elijas. Las invitaciones desde plantilla se entregan en 24 a 48 horas. Las personalizadas pueden tardar entre 3 y 5 días hábiles.",
+      "El tiempo de entrega depende del plan que elijas. Las invitaciones desde plantilla se entregan inmediatamente. Las personalizadas pueden tardar entre 3 y 5 días hábiles.",
   },
   {
     question: "¿Puedo hacer cambios después de recibir la invitación?",
