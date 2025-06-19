@@ -9,13 +9,13 @@ type Props = {
 const { title, content } = Astro.props;
 ---
 
-<details class="relative group cursor-pointer bg-[#E3CDFF] rounded-2xl">
+<details
+  class="relative group cursor-pointer bg-[#E3CDFF] rounded-2xl overflow-y-clip"
+>
   <summary
     class="py-6 px-8 list-none text-xl flex justify-between items-center"
   >
-    <strong class="transition-transform duration-300 ease-in-out-back-2"
-      >{title}</strong
-    >
+    <strong class="ease-in-out-back-2">{title}</strong>
     <Up
       class="size-8 rotate-180 transition-transform duration-300 ease-in-out-back-2"
       id="arrow"
@@ -29,11 +29,6 @@ const { title, content } = Astro.props;
     height: 80px;
     &:open {
       height: calc-size(max-content, size);
-      overflow-y: clip;
-    }
-
-    &:hover summary strong {
-      transform: scale(1.02);
     }
 
     &:open #arrow {
