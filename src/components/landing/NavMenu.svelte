@@ -41,7 +41,7 @@
   <button
     class={clsx(
       "flex justify-center items-center gap-1.5 text-lg cursor-pointer py-2.5 px-6 rounded-xl font-medium",
-      openMenu ? "-z-10" : "z-10"
+      openMenu ? "-z-10" : "z-10",
     )}
     onclick={toggleMenu}
   >
@@ -54,13 +54,13 @@
       "absolute bottom-0 right-0 rounded-xl transition-all duration-300 ease-in-out-back overflow-hidden",
       openMenu
         ? "z-50 w-[23rem] bg-inv-tertiary origin-bottom-right h-[29.7rem]"
-        : "-z-10 w-full bg-inv-tertiary/20 group-hover:scale-[1.10] h-full cursor-pointer"
+        : "-z-10 w-full bg-inv-tertiary group-hover:scale-[1.10] h-full cursor-pointer",
     )}
   >
     <div
       class={clsx(
-        "text-inv-text-light transition-opacity p-8 bg-[url('/src/assets/bg-menu.svg')] bg-cover h-full",
-        openMenu ? "opacity-100 delay-200" : "opacity-0 pointer-events-none"
+        "text-inv-text-dark transition-opacity p-8 bg-[url('/src/assets/bg-menu.svg')] bg-cover h-full",
+        openMenu ? "opacity-100 delay-200" : "opacity-0 pointer-events-none",
       )}
     >
       <header class="flex justify-between items-center">
