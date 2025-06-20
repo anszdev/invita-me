@@ -13,14 +13,14 @@ const { title, description, class: className } = Astro.props;
 
 <article
   class={clsx(
-    "flex w-[625px] rounded-2xl overflow-hidden h-auto cursor-pointer hover:-translate-y-3 transition-transform ease-in-out-back-2 duration-300 will-change-transform",
+    "flex w-[625px] rounded-2xl overflow-hidden h-auto cursor-pointer hover:-translate-y-3 transition-all ease-in-out-back-2 duration-300 will-change-transform text-inv-text-dark",
     className,
   )}
   data-card="horizontal"
 >
   <aside class="p-6 grid place-items-center relative text-current">
     <p
-      class="font-semibold text-9xl absolute rotate-90 -right-[13.2rem] bottom-0 text-current/15 -z-10"
+      class="font-semibold text-9xl absolute rotate-90 -right-[13.2rem] bottom-0 text-white/20 -z-10"
     >
       Invita.<span class="font-light">me</span>
     </p>

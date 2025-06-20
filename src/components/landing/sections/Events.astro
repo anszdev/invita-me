@@ -6,14 +6,9 @@ import Section from "./Section.astro";
 ---
 
 <Section>
-  <div class="absolute inset-0 -z-10 grid grid-cols-2">
-    <div class="bg-[url('/src/assets/bg.svg')] grid-rows-2">
-      <div class="from-transparent to-inv-bg-light bg-radial h-full"></div>
-    </div>
-  </div>
   <Container>
-    <h2 class="font-semibold text-6xl">
-      Elige Tu Próxima <span class="text-inv-tertiary font-bold"
+    <h2 class="font-extrabold text-6xl">
+      Elige Tu Próxima <span class="text-inv-primary font-black"
         >Celebración</span
       >:
     </h2>
@@ -35,4 +30,12 @@ import Section from "./Section.astro";
       </p>
     </div>
   </Container>
+  <div class="absolute inset-0 -z-10 grid grid-cols-2">
+    <div class="bg-[url('/src/assets/bg.svg')] grid-rows-2">
+      <div
+        class="from-transparent via-80% via-inv-bg-light to-inv-bg-light bg-radial h-full"
+      >
+      </div>
+    </div>
+  </div>
 </Section>
