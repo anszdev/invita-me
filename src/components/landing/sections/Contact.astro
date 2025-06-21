@@ -1,0 +1,31 @@
+---
+import Container from "@components/common/Container.astro";
+import Mail from "@assets/mail.svg";
+import WhatsApp from "@assets/whatsapp.svg";
+import Arrow from "@assets/arrow.svg";
+import ContactLink from "../ContactLink.astro";
+import Section from "./Section.astro";
+---
+
+<Section>
+  <Container>
+    <h2 class="font-extrabold text-7xl text-center">¿Hablamos?</h2>
+    <p class="font-medium text-xl mt-2.5 text-center">
+      Ya sea que tengas una duda, idea o quieras empezar tu invitación, estamos
+      aquí para ayudarte.
+    </p>
+    <div class="mt-20 mx-auto">
+      <p class="font-semibold text-5xl">Contactanos por</p>
+      <div class="flex flex-col gap-5 mt-2 font-extrabold text-8xl">
+        <ContactLink href="#">
+          WhatsApp
+          <WhatsApp slot="icon" class="size-44" />
+        </ContactLink>
+        <ContactLink href="#">
+          Correo Electronico
+          <Mail slot="icon" class="size-40" />
+        </ContactLink>
+      </div>
+    </div>
+  </Container>
+</Section>

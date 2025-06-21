@@ -13,22 +13,20 @@ const { title, description, class: className } = Astro.props;
 
 <article
   class={clsx(
-    "flex w-[625px] rounded-2xl overflow-hidden h-auto cursor-pointer hover:-translate-y-3 transition-transform ease-in-out-back-2 duration-300 will-change-transform",
-    className
+    "flex w-[625px] rounded-2xl overflow-hidden h-auto cursor-pointer hover:-translate-y-3 transition-all ease-in-out-back-2 duration-300 will-change-transform text-inv-text-dark",
+    className,
   )}
   data-card="horizontal"
 >
   <aside class="p-6 grid place-items-center relative text-current">
     <p
-      class="font-semibold text-9xl absolute rotate-90 -right-[13.2rem] bottom-0 text-current/15 -z-10"
+      class="font-semibold text-9xl absolute rotate-90 -right-[13.2rem] bottom-0 text-white/20 -z-10"
     >
       Invita.<span class="font-light">me</span>
     </p>
     <slot name="icon" />
   </aside>
-  <div
-    class="w-6 h-60 bg-inv-bg-light mask-[url('/src/assets/rounded-separator.svg')] mask-repeat-y mask-size-[80%_16px] [mask-composite:exclude]"
-  >
+  <div class="h-200px border-l-8 border-b-inv-text-light border-dotted w-px">
   </div>
   <div class="px-7 py-9">
     <div class="flex justify-between">
@@ -37,7 +35,7 @@ const { title, description, class: className } = Astro.props;
         <CodeQR class="size-12" />
       </div>
     </div>
-    <p class="font-medium text-xl mt-3 text-pretty">
+    <p class="font-medium text-xl mt-3 text-pretty min-h-24">
       {description}
     </p>
   </div>

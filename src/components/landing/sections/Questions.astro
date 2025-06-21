@@ -1,0 +1,37 @@
+---
+import Container from "@components/common/Container.astro";
+import Section from "./Section.astro";
+import Details from "../Details.astro";
+
+import { FAQS } from "@utils/staticData";
+---
+
+<Section>
+  <Container>
+    <h2 class="font-extrabold text-6xl text-center">Preguntas Frecuentes</h2>
+    <div class="grid grid-cols-2 gap-8 mt-16">
+      <div class="flex flex-col gap-9">
+        {
+          FAQS.slice(0, 3).map(({ answer, question }) => (
+            <Details title={question} content={answer} />
+          ))
+        }
+      </div>
+      <div class="flex flex-col gap-9">
+        {
+          FAQS.slice(3, 7).map(({ answer, question }) => (
+            <Details title={question} content={answer} />
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+  <div
+    class="absolute inset-0 -z-10 size-96 from-inv-primary/20 via-inv-primary/10 to-inv-primary/5 blur-3xl bg-radial top-32 left-16"
+  >
+  </div>
+  <div
+    class="absolute -z-10 size-96 from-inv-primary/20 via-inv-primary/10 to-inv-primary/5 blur-3xl bg-radial bottom-16 right-16"
+  >
+  </div>
+</Section>

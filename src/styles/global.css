@@ -1,17 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --inv-bg-light: #f9f9fb;
-  --inv-bg-dark: #2c2c35;
+  interpolate-size: allow-keywords;
 
-  --inv-primary: #a259ff;
-  --inv-secondary: #429de0;
-  --inv-tertiary: #ec4899;
+  --inv-bg-light: #fef9f9;
+  --inv-bg-dark: #2a1e22;
 
-  --inv-text-light: #f2f2f5;
-  --inv-text-dark: #2e2e33;
+  /* #EE839F */
+  --inv-primary: #f09caf;
+  --inv-secondary: #f1adb9;
+  --inv-tertiary: #f3cfce;
+  --inv-ui-accent: #ee839f;
 
-  --inv-neutral: #d4d7dd;
+  --inv-text-light: #fdfafa;
+  --inv-text-dark: #2e2e2e;
+
+  --inv-neutral: #cfcfd1;
 }
 
 @theme {
@@ -23,8 +27,12 @@
   --color-inv-text-light: var(--inv-text-light);
   --color-inv-text-dark: var(--inv-text-dark);
   --color-inv-neutral: var(--inv-neutral);
+  --color-inv-ui-accent: var(--inv-ui-accent);
 
-  --shadow-card: rgba(236, 72, 153, 0.2) 0px 18px 50px -10px;
+  --shadow-card:
+    rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px,
+    rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px,
+    rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 
   --ease-in-out-back: cubic-bezier(0.86, 0, 0.07, 1);
   --ease-in-out-back-2: cubic-bezier(0.68, -0.55, 0.27, 1.55);

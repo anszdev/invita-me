@@ -1,0 +1,88 @@
+---
+import Container from "@common/Container.astro";
+import Check from "@assets/check.svg";
+import Ticket from "../Ticket.astro";
+import Section from "./Section.astro";
+
+import { CONTENT_INVITATION } from "@utils/staticData";
+---
+
+<Section>
+  <Container>
+    <h2 class="font-extrabold text-6xl">
+      Encuentra el Plan Perfecto
+      <br />para tu <span class="font-black text-inv-primary">Evento</span>.
+    </h2>
+    <div>
+      <article class="grid grid-cols-2 mt-24 items-center">
+        <ul class="grid grid-cols-2 gap-x-6 gap-y-6 font-semibold text-xl">
+          {
+            CONTENT_INVITATION.map((item) => (
+              <li class="flex items-center gap-2">
+                <i class="p-1.5 bg-inv-tertiary/35 rounded-full text-inv-ui-accent">
+                  <Check class="size-4" />
+                </i>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+        <div class="bg-inv-tertiary p-8 rounded-2xl h-fit w-3/4 place-self-end">
+          <h5 class="text-3xl font-bold mb-6">¿Se te ocurre algo más?</h5>
+          <a
+            href="#"
+            class="rounded-2xl bg-inv-primary text-inv-text-light py-3 block text-center font-semibold px-4 text-xl"
+            >Cuentanos</a
+          >
+        </div>
+      </article>
+      <article class="mt-24 grid grid-cols-2 gap-x-12">
+        <Ticket
+          title="Diseño 100% Personalizado"
+          description={`Una invitación hecha desde cero solo para ti. Cuéntanos tu estilo,
+      temática y colores... ¡y nosotros nos encargamos del resto!
+      Perfecta para quienes buscan algo exclusivo y original.`}
+          list={[
+            "Diseño a medida",
+            "Colores y tipografías personalizadas",
+            "Secciones adaptadas a tu evento",
+            "Acompañamiento durante el proceso",
+          ]}
+          price="Desde $800"
+          href="#"
+          footerLabel="Quiero saber más"
+          extendClass="bg-inv-tertiary text-inv-text-dark"
+          footerClass="bg-inv-primary text-inv-text-dark"
+        />
+        <Ticket
+          title="Elige, Personaliza y Listo"
+          description={`Elige una de nuestras plantillas prediseñadas y dale tu toque personal. Rápido, bonito y funcional.
+          Perfecto si quieres algo lindo sin complicaciones.`}
+          list={[
+            "Amplia galería de plantillas",
+            "Personalización de textos, fotos, etc...",
+            "Entrega instantánea",
+          ]}
+          price="Desde $100"
+          href="#"
+          footerLabel="Quiero saber más"
+          extendClass="bg-inv-neutral"
+          footerClass="bg-inv-bg-dark text-inv-text-light"
+        />
+      </article>
+    </div>
+  </Container>
+  <div
+    class="absolute inset-0 -z-10 size-96 from-inv-primary/20 via-inv-primary/10 to-inv-primary/5 blur-3xl bg-radial top-32 left-16"
+  >
+  </div>
+  <div class="absolute inset-0 -z-10 grid grid-cols-2">
+    <div></div>
+    <div class="bg-[url('/src/assets/bg.svg')] grid-rows-2 relative">
+      <div
+        class="from-transparent via-80% via-inv-bg-light to-inv-bg-light bg-radial h-full"
+      >
+      </div>
+    </div>
+  </div>
+</Section>

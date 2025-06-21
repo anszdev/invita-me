@@ -1,0 +1,59 @@
+---
+import clsx from "clsx";
+
+type Props = {
+  title: string;
+  description: string;
+  list: string[];
+  price: number | string;
+  href: string;
+  footerLabel: string;
+  extendClass?: string;
+  footerClass?: string;
+};
+
+const {
+  description,
+  list = [],
+  price,
+  title,
+  href,
+  footerLabel,
+  extendClass,
+  footerClass,
+} = Astro.props;
+---
+
+<a href={href} class="hover:scale-105 ease-in-out-back-2 duration-300">
+  <div
+    class={clsx(
+      "rounded-t-3xl p-10 border-b-[6px] border-inv-text-light border-dashed",
+      extendClass,
+    )}
+  >
+    <div class="flex items-start">
+      <h4 class="font-extrabold text-6xl">{title}</h4>
+    </div>
+    <p class="font-medium text-lg py-7">
+      {description}
+    </p>
+    <ul class="flex flex-col gap-2.5 font-semibold text-xl min-h-36">
+      {
+        list.map((item) => (
+          <li class="flex items-center gap-3">
+            <span class="bg-current size-2 block rounded-full" />
+            {item}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <footer
+    class={clsx(
+      " p-6 block mt-2.5 rounded-b-3xl border-t-[6px] border-inv-text-light border-dashed text-center font-bold text-2xl",
+      footerClass,
+    )}
+  >
+    {footerLabel}
+  </footer>
+</a>

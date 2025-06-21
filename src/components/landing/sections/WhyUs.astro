@@ -1,5 +1,5 @@
 ---
-import TicketHorizontal from "./TicketHorizontal.astro";
+import TicketHorizontal from "../TicketHorizontal.astro";
 
 import Container from "@common/Container.astro";
 import Question from "@assets/question.svg";
@@ -7,20 +7,21 @@ import Devices from "@assets/devices.svg";
 import Design from "@assets/design.svg";
 import Sheet from "@assets/sheet.svg";
 import Cursor from "@assets/cursor.svg";
+import Section from "./Section.astro";
 ---
 
-<section class="py-28">
+<Section>
   <Container>
     <div class="text-center max-w-4xl mx-auto">
       <h2
-        class="font-semibold text-6xl relative flex items-center justify-center gap-4"
+        class="font-extrabold text-6xl relative flex items-center justify-center gap-4"
       >
         <Question
-          class="size-36 rotate-[170deg] text-inv-tertiary/50 mask-[linear-gradient(transparent,white_30%)]"
+          class="size-36 rotate-[170deg] text-inv-tertiary/95 mask-[linear-gradient(transparent,white_30%)]"
         />
         Por qué 🪅Invita.me
         <Question
-          class="size-24 rotate-[20deg] text-inv-tertiary/50 mask-[linear-gradient(white_30%,transparent)]"
+          class="size-24 rotate-[20deg] text-inv-tertiary/95 mask-[linear-gradient(white_30%,transparent)]"
         />
       </h2>
       <h3 class="font-bold text-4xl mt-4">
@@ -40,31 +41,31 @@ import Cursor from "@assets/cursor.svg";
       <TicketHorizontal
         title="100% Digital y siempre contigo"
         description="Accede, comparte y actualiza tu invitación desde cualquier lugar y dispositivo. Sin papel, sin complicaciones."
-        class="absolute bg-inv-primary -rotate-2 top-12 z-[3] text-inv-text-light"
+        class="absolute bg-inv-primary -rotate-2 top-12 z-[3]"
       >
         <Devices class="size-16" slot="icon" />
       </TicketHorizontal>
       <TicketHorizontal
         title="Diseños que cuentan tu historia"
         description="Personaliza cada detalle o déjanos ayudarte a crear algo único. Nos inspiras tú, tu evento y tus ideas."
-        class="bg-[#be8bff] absolute left-1/2 -translate-x-1/2 z-[2] text-inv-text-light"
+        class="bg-inv-secondary absolute left-1/2 -translate-x-1/2 z-[2]"
       >
         <Design class="size-16" slot="icon" />
       </TicketHorizontal>
       <TicketHorizontal
         title="Sostenible y además responsable"
         description="Cuidamos el planeta contigo. Invitaciones digitales que reducen el uso de papel sin perder elegancia."
-        class="bg-[#e3cdff] absolute right-0 rotate-2 top-12 z-[1] text-inv-text-dark"
+        class="bg-inv-tertiary absolute right-0 rotate-2 top-12 z-[1]"
       >
         <Sheet class="size-16" slot="icon" />
       </TicketHorizontal>
     </div>
-    <div class="flex items-center gap-2 mt-16 justify-center">
+    <div class="flex items-center gap-2 mt-20 justify-center">
       <Cursor class="size-10" />
       <p class="font-medium text-xl">Pasa el cursor</p>
     </div>
   </Container>
-</section>
+</Section>
 <script>
   const $cards: NodeListOf<HTMLDivElement> = document.querySelectorAll(
     "[data-card='horizontal']",
@@ -79,6 +80,7 @@ import Cursor from "@assets/cursor.svg";
       }
       activeCard = index;
       $cards[activeCard].classList.add("-translate-y-3");
+      $cards[activeCard].classList.add("text-inv-text-dark");
       $cards[activeCard].style.zIndex = "5";
     });
   });
