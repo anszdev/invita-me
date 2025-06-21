@@ -12,7 +12,7 @@ const { title, content } = Astro.props;
 <details
   class="relative group cursor-pointer bg-inv-tertiary rounded-2xl overflow-y-clip"
 >
-  <summary class="py-7 px-8 list-none flex justify-between items-center">
+  <summary class="py-6 px-8 list-none flex justify-between items-center">
     <p class="ease-in-out-back-2 text-xl font-semibold">{title}</p>
     <Up
       class="size-8 rotate-180 transition-transform duration-300 ease-in-out-back-2"
@@ -24,7 +24,7 @@ const { title, content } = Astro.props;
 <style>
   details {
     transition: all 0.3s ease-in-out;
-    height: 88px;
+    height: 80px;
     &:open {
       height: calc-size(max-content, size);
     }
