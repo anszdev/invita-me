@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { type Component, onMount } from "svelte";
   import clsx from "clsx";
 
   import Menu from "@common/icons/Menu.svelte";
@@ -7,9 +8,9 @@
   import Mail from "@common/icons/Mail.svelte";
   import Close from "@common/icons/Close.svelte";
   import { NAV_LINKS } from "@utils/staticData";
-  import { type Component } from "svelte";
 
   let openMenu = $state(false);
+  let isDesktop = $state(false);
 
   const toggleMenu = () => {
     openMenu = !openMenu;
@@ -18,6 +19,20 @@
   const closeMenu = () => {
     openMenu = false;
   };
+
+  console.log(window);
+
+  $effect(() => {
+    const mediaQuery = window.matchMedia("(width > 1024px)");
+    isDesktop = mediaQuery.matches;
+
+    const handleResize = () => {
+      isDesktop = mediaQuery.matches;
+    };
+
+    mediaQuery.addEventListener("change", handleResize);
+    return () => mediaQuery.removeEventListener("change", handleResize);
+  });
 </script>
 
 <div class="relative group">
@@ -40,7 +55,7 @@
         : "-z-10 w-full bg-inv-tertiary group-hover:scale-[1.10] h-full cursor-pointer",
     )}
   >
-    <div
+    <nav
       class={clsx(
         "text-inv-text-dark transition-opacity p-8 bg-[url('/src/assets/bg-menu.svg')] bg-cover h-full",
         openMenu ? "opacity-100 delay-200" : "opacity-0 pointer-events-none",
@@ -69,13 +84,15 @@
         {@render socialIcon(Whatsapp, "#prices")}
         {@render socialIcon(Mail, "#prices")}
       </footer>
-    </div>
+    </nav>
   </div>
 </div>
 
 {#snippet menuItem(href: string, label: string)}
-  <a class="block hover:ml-3.5 transition-[margin-left] duration-200" {href}
-    >{label}</a
+  <a
+    class="block hover:ml-3.5 transition-[margin-left] duration-200"
+    {href}
+    onclick={closeMenu}>{label}</a
   >
 {/snippet}
 
