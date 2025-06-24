@@ -1,15 +1,30 @@
 ---
 import Container from "@/components/common/Container.astro";
+import { NAV_LINKS } from "@utils/staticData";
 ---
 
 <footer class="bg-inv-bg-dark py-20 text-inv-text-light">
   <Container>
     <div class="grid grid-cols-[2fr_1fr]">
       <div class="border-r-4 border-dotted dotted pr-10">
-        <nav></nav>
-        <h1 class="font-extrabold text-[14rem] leading-none">
+        <nav class="flex gap-12 ml-2.5">
+          {
+            NAV_LINKS.map((link) => (
+              <a
+                href={link.href}
+                class="text-xl font-semibold uppercase gap-8 py-2"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+        <a
+          href="/"
+          class="font-extrabold text-[14rem] leading-none my-6 hover:scale-105"
+        >
           Invita.<span class="font-light">me</span>
-        </h1>
+        </a>
         <p class="text-xl font-medium ml-2.5">
           Desarrollado por <a href="#">@anszdev</a>, inspirado en <a
             href="https://pixelease.net/">@PixelEase</a
