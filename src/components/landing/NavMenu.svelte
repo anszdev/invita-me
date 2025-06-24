@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import clsx from "clsx";
 
   import Menu from "@common/icons/Menu.svelte";
@@ -6,27 +6,10 @@
   import Whatsapp from "@common/icons/Whatsapp.svelte";
   import Mail from "@common/icons/Mail.svelte";
   import Close from "@common/icons/Close.svelte";
+  import { NAV_LINKS } from "@utils/staticData";
+  import { type Component } from "svelte";
 
   let openMenu = $state(false);
-
-  const menuItems = [
-    {
-      href: "#prices",
-      label: "Diseños",
-    },
-    {
-      href: "#prices",
-      label: "Planes",
-    },
-    {
-      href: "#prices",
-      label: "FAQ",
-    },
-    {
-      href: "#prices",
-      label: "Contacto",
-    },
-  ];
 
   const toggleMenu = () => {
     openMenu = !openMenu;
@@ -68,14 +51,14 @@
           🪅Invita.<span class="font-light">me</span>
         </h1>
         <button
-          class="cursor-pointer hover:bg-inv-neutral/30 rounded-xl p-1 transition-colors duration-300 ease-in-out"
+          class="cursor-pointer hover:bg-inv-bg-dark/10 rounded-xl p-1 transition-colors duration-300 ease-in-out"
           onclick={closeMenu}
         >
           <Close size="32" />
         </button>
       </header>
       <ul class="flex flex-col gap-y-3 my-12 text-5xl font-medium">
-        {#each menuItems as item}
+        {#each NAV_LINKS as item}
           <li>
             {@render menuItem(item.href, item.label)}
           </li>
@@ -90,16 +73,16 @@
   </div>
 </div>
 
-{#snippet menuItem(href, label)}
+{#snippet menuItem(href: string, label: string)}
   <a class="block hover:ml-3.5 transition-[margin-left] duration-200" {href}
     >{label}</a
   >
 {/snippet}
 
-{#snippet socialIcon(icon, href)}
+{#snippet socialIcon(icon: Component, href: string)}
   <a
     {href}
-    class="cursor-pointer hover:bg-inv-neutral/30 rounded-xl p-1.5 transition-colors duration-300 ease-in-out"
+    class="cursor-pointer hover:bg-inv-bg-dark/10 rounded-xl p-1.5 transition-colors duration-300 ease-in-out"
   >
     <!-- svelte-ignore svelte_component_deprecated -->
     <svelte:component this={icon} size="32" />

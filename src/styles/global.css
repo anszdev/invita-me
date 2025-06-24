@@ -38,6 +38,12 @@
   --ease-in-out-back-2: cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
+html,
+body {
+  scrollbar-color: var(--inv-secondary) transparent;
+  scrollbar-width: thin;
+}
+
 body {
   background: var(--inv-bg-light);
   color: var(--inv-text-dark);

@@ -1,3 +1,22 @@
+export const NAV_LINKS = [
+  {
+    href: "#designs",
+    label: "Diseños",
+  },
+  {
+    href: "#plans",
+    label: "Planes",
+  },
+  {
+    href: "#faq",
+    label: "FAQ",
+  },
+  {
+    href: "#contact",
+    label: "Contacto",
+  },
+];
+
 export const EVENT_CATEGORIES = [
   { event: "Boda", img: "boda" },
   { event: "Xv Años", img: "xv" },
