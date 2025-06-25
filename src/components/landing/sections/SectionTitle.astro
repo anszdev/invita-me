@@ -1,0 +1,13 @@
+---
+import clsx from "clsx";
+
+type Props = {
+  align?: "text-left" | "text-center" | "text-right";
+};
+
+const { align } = Astro.props;
+---
+
+<h2 class={clsx("font-extrabold text-2xl md:text-7xl", align)}>
+  <slot />
+</h2>

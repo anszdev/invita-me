@@ -13,29 +13,31 @@ const { title, description, class: className } = Astro.props;
 
 <article
   class={clsx(
-    "flex w-[625px] rounded-2xl overflow-hidden h-auto cursor-pointer hover:-translate-y-3 transition-all ease-in-out-back-2 duration-300 will-change-transform text-inv-text-dark",
+    "flex flex-col md:flex-row w-full md:w-[625px] rounded-2xl overflow-hidden h-auto cursor-pointer hover:-translate-y-3 transition-all ease-in-out-back-2 duration-300 will-change-transform text-inv-text-dark",
     className,
   )}
   data-card="horizontal"
 >
   <aside class="p-6 grid place-items-center relative text-current">
     <p
-      class="font-semibold text-9xl absolute rotate-90 -right-[13.2rem] bottom-0 text-white/20 -z-10"
+      class="font-semibold text-9xl absolute md:rotate-90 -right-[13.2rem] bottom-0 text-white/20 -z-10"
     >
       Invita.<span class="font-light">me</span>
     </p>
     <slot name="icon" />
   </aside>
-  <div class="h-200px border-l-8 border-b-inv-text-light border-dotted w-px">
+  <div
+    class="md:h-200px md:border-l-8 border-t-8 w-full md:w-px border-b-inv-text-light border-dotted"
+  >
   </div>
-  <div class="px-7 py-9">
-    <div class="flex justify-between">
-      <h4 class="font-black text-3xl">{title}</h4>
+  <div class="px-4 md:px-7 py-6 md:py-9">
+    <div class="flex justify-between gap-1.5">
+      <h4 class="font-black text-xl md:text-3xl">{title}</h4>
       <div>
-        <CodeQR class="size-12" />
+        <CodeQR class="size-8 md:size-12" />
       </div>
     </div>
-    <p class="font-medium text-xl mt-3 text-pretty min-h-24">
+    <p class="font-medium md:text-xl mt-3 text-pretty min-h-24">
       {description}
     </p>
   </div>

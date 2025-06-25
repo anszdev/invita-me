@@ -1,5 +1,6 @@
 <script lang="ts">
   import { type Component, onMount } from "svelte";
+  import { fade } from "svelte/transition";
   import clsx from "clsx";
 
   import Menu from "@common/icons/Menu.svelte";
@@ -10,7 +11,6 @@
   import { NAV_LINKS } from "@utils/staticData";
 
   let openMenu = $state(false);
-  let isDesktop = $state(false);
 
   const toggleMenu = () => {
     openMenu = !openMenu;
@@ -19,20 +19,6 @@
   const closeMenu = () => {
     openMenu = false;
   };
-
-  console.log(window);
-
-  $effect(() => {
-    const mediaQuery = window.matchMedia("(width > 1024px)");
-    isDesktop = mediaQuery.matches;
-
-    const handleResize = () => {
-      isDesktop = mediaQuery.matches;
-    };
-
-    mediaQuery.addEventListener("change", handleResize);
-    return () => mediaQuery.removeEventListener("change", handleResize);
-  });
 </script>
 
 <div class="relative group">
@@ -51,7 +37,7 @@
     class={clsx(
       "absolute bottom-0 right-0 rounded-xl transition-all duration-300 ease-in-out-back overflow-hidden",
       openMenu
-        ? "z-50 w-[23rem] bg-inv-tertiary origin-bottom-right h-[29.7rem]"
+        ? "z-50 w-auto md:w-[23rem] bg-inv-tertiary origin-bottom-right h-[29.7rem]"
         : "-z-10 w-full bg-inv-tertiary group-hover:scale-[1.10] h-full cursor-pointer",
     )}
   >
@@ -62,9 +48,9 @@
       )}
     >
       <header class="flex justify-between items-center">
-        <h1 class="text-2xl font-semibold">
+        <a class="text-2xl font-semibold" href="/">
           🪅Invita.<span class="font-light">me</span>
-        </h1>
+        </a>
         <button
           class="cursor-pointer hover:bg-inv-bg-dark/10 rounded-xl p-1 transition-colors duration-300 ease-in-out"
           onclick={closeMenu}
@@ -87,6 +73,13 @@
     </nav>
   </div>
 </div>
+{#if openMenu}
+  <div
+    transition:fade={{ duration: 200 }}
+    onclick={closeMenu}
+    class="fixed inset-0 w-dvw h-dvh bg-inv-tertiary/15 backdrop-blur-sm transition-all duration-300 z-20"
+  ></div>
+{/if}
 
 {#snippet menuItem(href: string, label: string)}
   <a
