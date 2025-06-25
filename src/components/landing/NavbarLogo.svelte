@@ -18,8 +18,8 @@
 <a
   href="/"
   class={clsx(
-    "text-2xl md:text-4xl hover:scale-[1.15] transition-all ease-in-out duration-200 will-change-transform",
-    hidden && "pointer-events-none opacity-0",
+    "opacity-0 md:opacity-100 pointer-events-none md:pointer-events-auto text-2xl md:text-4xl hover:scale-[1.15] transition-all ease-in-out duration-200 will-change-transform",
+    hidden && "pointer-events-none opacity-0"
   )}
   aria-label="Invita.me Home"
   title="Invita.me Home"
