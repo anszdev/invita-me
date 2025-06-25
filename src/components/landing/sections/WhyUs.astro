@@ -12,28 +12,28 @@ import Section from "./Section.astro";
 
 <Section>
   <Container>
-    <div class="text-center max-w-4xl mx-auto">
+    <div class="text-center w-full md:max-w-4xl mx-auto">
       <h2
-        class="font-extrabold text-6xl relative flex items-center justify-center gap-4"
+        class="font-extrabold text-2xl md:text-6xl relative flex items-center justify-center gap-4"
       >
         <Question
-          class="size-36 rotate-[170deg] text-inv-tertiary/95 mask-[linear-gradient(transparent,white_30%)]"
+          class="absolute md:relative -left-3 size-16 md:size-36 rotate-[170deg] text-inv-tertiary/95 mask-[linear-gradient(transparent,white_30%)]"
         />
         Por qué 🪅Invita.me
         <Question
-          class="size-24 rotate-[20deg] text-inv-tertiary/95 mask-[linear-gradient(white_30%,transparent)]"
+          class="absolute md:relative -right-2 size-12 md:size-24 rotate-[20deg] text-inv-tertiary/95 mask-[linear-gradient(white_30%,transparent)]"
         />
       </h2>
-      <h3 class="font-bold text-4xl mt-4">
+      <h3 class="font-bold text-xl md:text-4xl mt-2 md:mt-4">
         La forma moderna, creativa y consciente de invitar.
       </h3>
-      <p class="font-medium text-xl mt-7 text-pretty">
+      <p class="font-medium md:text-xl mt-4 md:mt-7 text-pretty">
         Transformamos una simple invitación en una experiencia memorable.
         Descubre cómo hacemos que tu evento destaque desde el primer clic.
       </p>
     </div>
 
-    <div class="mt-16 relative max-w-6xl mx-auto w-full h-60">
+    <div class="mt-16 relative md:max-w-6xl mx-auto w-full md:h-60">
       <div
         class="absolute inset-0 top-7 -z-10 w-3/4 h-[20rem] from-inv-primary/15 via-inv-primary/10 to-inv-primary/5 blur-3xl bg-radial -translate-x-1/2"
       >
@@ -41,21 +41,21 @@ import Section from "./Section.astro";
       <TicketHorizontal
         title="100% Digital y siempre contigo"
         description="Accede, comparte y actualiza tu invitación desde cualquier lugar y dispositivo. Sin papel, sin complicaciones."
-        class="absolute bg-inv-primary -rotate-2 top-12 z-[3]"
+        class="md:absolute bg-inv-primary -rotate-2 md:top-12 md:z-[3]"
       >
         <Devices class="size-16" slot="icon" />
       </TicketHorizontal>
       <TicketHorizontal
         title="Diseños que cuentan tu historia"
         description="Personaliza cada detalle o déjanos ayudarte a crear algo único. Nos inspiras tú, tu evento y tus ideas."
-        class="bg-inv-secondary absolute left-1/2 -translate-x-1/2 z-[2]"
+        class="bg-inv-secondary md:absolute left-1/2 md:-translate-x-1/2 md:z-[2]"
       >
         <Design class="size-16" slot="icon" />
       </TicketHorizontal>
       <TicketHorizontal
         title="Sostenible y además responsable"
         description="Cuidamos el planeta contigo. Invitaciones digitales que reducen el uso de papel sin perder elegancia."
-        class="bg-inv-tertiary absolute right-0 rotate-2 top-12 z-[1]"
+        class="bg-inv-tertiary md:absolute md:right-0 rotate-2 md:top-12 md:z-[1]"
       >
         <Sheet class="size-16" slot="icon" />
       </TicketHorizontal>

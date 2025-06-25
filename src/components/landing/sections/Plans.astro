@@ -5,17 +5,22 @@ import Ticket from "../Ticket.astro";
 import Section from "./Section.astro";
 
 import { CONTENT_INVITATION } from "@utils/staticData";
+import SectionTitle from "./SectionTitle.astro";
 ---
 
 <Section id="plans">
   <Container>
-    <h2 class="font-extrabold text-6xl">
+    <SectionTitle>
       Encuentra el Plan Perfecto
       <br />para tu <span class="font-black text-inv-primary">Evento</span>.
-    </h2>
-    <div>
-      <article class="grid grid-cols-2 mt-24 items-center">
-        <ul class="grid grid-cols-2 gap-x-6 gap-y-6 font-semibold text-xl">
+    </SectionTitle>
+    <div class="flex flex-col-reverse md:flex-col">
+      <article
+        class="flex flex-col md:grid md:grid-cols-2 mt-12 md:mt-24 items-center"
+      >
+        <ul
+          class="grid grid-cols-2 gap-x-6 gap-y-6 font-semibold text-lg md:text-xl"
+        >
           {
             CONTENT_INVITATION.map((item) => (
               <li class="flex items-center gap-2">
@@ -27,16 +32,22 @@ import { CONTENT_INVITATION } from "@utils/staticData";
             ))
           }
         </ul>
-        <div class="bg-inv-tertiary p-8 rounded-2xl h-fit w-3/4 place-self-end">
-          <h5 class="text-3xl font-bold mb-6">¿Se te ocurre algo más?</h5>
+        <div
+          class="mt-8 md:mt-0 bg-inv-tertiary p-4 md:p-8 rounded-2xl h-fit w-full md:w-3/4 place-self-end"
+        >
+          <h5 class="text-xl md:text-3xl font-bold mb-6 text-center">
+            ¿Se te ocurre algo más?
+          </h5>
           <a
-            href="#"
+            href="#contact"
             class="rounded-2xl bg-inv-primary text-inv-text-light py-3 block text-center font-semibold px-4 text-xl"
             >Cuentanos</a
           >
         </div>
       </article>
-      <article class="mt-24 grid grid-cols-2 gap-x-12">
+      <article
+        class="mt-6 md:mt-24 flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-x-12"
+      >
         <Ticket
           title="Diseño 100% Personalizado"
           description={`Una invitación hecha desde cero solo para ti. Cuéntanos tu estilo,

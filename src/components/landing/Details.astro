@@ -12,14 +12,18 @@ const { title, content } = Astro.props;
 <details
   class="relative group cursor-pointer bg-inv-tertiary rounded-2xl overflow-y-clip"
 >
-  <summary class="py-6 px-8 list-none flex justify-between items-center">
-    <p class="ease-in-out-back-2 text-xl font-semibold">{title}</p>
-    <Up
-      class="size-8 rotate-180 transition-transform duration-300 ease-in-out-back-2"
-      id="arrow"
-    />
+  <summary
+    class="py-3 md:py-6 px-4 md:px-8 list-none flex justify-between items-center gap-1.5 h-full"
+  >
+    <p class="ease-in-out-back-2 text-lg md:text-xl font-semibold">{title}</p>
+    <i class="size-6 md:size-8 flex justify-center items-center" id="arrow">
+      <Up
+        class="transition-transform duration-300 ease-in-out-back-2"
+        id="arrow"
+      />
+    </i>
   </summary>
-  <p class="text-lg pb-6 px-8 pt-1.5 delay-100">{content}</p>
+  <p class="md:text-lg pb-3 md:pb-6 px-4 md:px-8 pt-1.5 delay-100">{content}</p>
 </details>
 <style>
   details {
@@ -27,6 +31,10 @@ const { title, content } = Astro.props;
     height: 80px;
     &:open {
       height: calc-size(max-content, size);
+    }
+
+    #arrow {
+      transform: rotate(90deg);
     }
 
     &:open #arrow {
