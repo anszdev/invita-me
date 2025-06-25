@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { type Component, onMount } from "svelte";
+  import { fade } from "svelte/transition";
   import clsx from "clsx";
 
   import Menu from "@common/icons/Menu.svelte";
@@ -7,7 +9,6 @@
   import Mail from "@common/icons/Mail.svelte";
   import Close from "@common/icons/Close.svelte";
   import { NAV_LINKS } from "@utils/staticData";
-  import { type Component } from "svelte";
 
   let openMenu = $state(false);
 
@@ -36,20 +37,20 @@
     class={clsx(
       "absolute bottom-0 right-0 rounded-xl transition-all duration-300 ease-in-out-back overflow-hidden",
       openMenu
-        ? "z-50 w-[23rem] bg-inv-tertiary origin-bottom-right h-[29.7rem]"
+        ? "z-50 w-auto md:w-[23rem] bg-inv-tertiary origin-bottom-right h-[29.7rem]"
         : "-z-10 w-full bg-inv-tertiary group-hover:scale-[1.10] h-full cursor-pointer",
     )}
   >
-    <div
+    <nav
       class={clsx(
         "text-inv-text-dark transition-opacity p-8 bg-[url('/src/assets/bg-menu.svg')] bg-cover h-full",
         openMenu ? "opacity-100 delay-200" : "opacity-0 pointer-events-none",
       )}
     >
       <header class="flex justify-between items-center">
-        <h1 class="text-2xl font-semibold">
+        <a class="text-2xl font-semibold" href="/">
           🪅Invita.<span class="font-light">me</span>
-        </h1>
+        </a>
         <button
           class="cursor-pointer hover:bg-inv-bg-dark/10 rounded-xl p-1 transition-colors duration-300 ease-in-out"
           onclick={closeMenu}
@@ -69,13 +70,22 @@
         {@render socialIcon(Whatsapp, "#prices")}
         {@render socialIcon(Mail, "#prices")}
       </footer>
-    </div>
+    </nav>
   </div>
 </div>
+{#if openMenu}
+  <div
+    transition:fade={{ duration: 200 }}
+    onclick={closeMenu}
+    class="fixed inset-0 w-dvw h-dvh bg-inv-tertiary/15 backdrop-blur-sm transition-all duration-300 z-20"
+  ></div>
+{/if}
 
 {#snippet menuItem(href: string, label: string)}
-  <a class="block hover:ml-3.5 transition-[margin-left] duration-200" {href}
-    >{label}</a
+  <a
+    class="block hover:ml-3.5 transition-[margin-left] duration-200"
+    {href}
+    onclick={closeMenu}>{label}</a
   >
 {/snippet}
 

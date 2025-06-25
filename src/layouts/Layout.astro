@@ -12,12 +12,16 @@ import "../styles/global.css";
     <meta name="generator" content={Astro.generator} />
     <title>🪅Invita.me - Invitaciones digitales</title>
   </head>
-  <body>
+  <body class="overflow-x-hidden">
     <slot />
   </body>
 </html>
 
 <style>
+  * {
+    outline: 1px solid red; /* o usa un color semitransparente */
+  }
+
   html,
   body {
     scroll-behavior: smooth;

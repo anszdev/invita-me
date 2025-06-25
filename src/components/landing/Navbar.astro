@@ -1,21 +1,16 @@
 ---
 import Container from "../common/Container.astro";
 import NavMenu from "./NavMenu.svelte";
+import NavbarLogo from "./NavbarLogo.svelte";
+import NavDesktop from "./NavDesktop.svelte";
 ---
 
-<div class="relative mt-7">
+<div class="fixed w-full z-50 bottom-10">
   <Container>
-    <nav class="flex justify-between py-3.5">
-      <a
-        href="/"
-        class="text-4xl hover:scale-[1.15] transition-transform ease-in-out duration-200 will-change-transform"
-      >
-        <h1 class="font-semibold">
-          🪅Invita.<span class="font-light">me</span>
-        </h1>
-      </a>
-      <NavMenu client:only="true" />
-    </nav>
+    <div class="flex justify-between py-3.5">
+      <NavbarLogo client:only />
+      <NavMenu client:only />
+    </div>
   </Container>
   <div
     class="absolute inset-0 -z-10 w-1/3 h-92 from-inv-primary/20 via-inv-primary/10 to-inv-primary/5 blur-3xl -top-full left-10 bg-radial"

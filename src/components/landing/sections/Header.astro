@@ -4,20 +4,10 @@ import CardImage from "../CardImage.astro";
 import { EVENT_CATEGORIES } from "@utils/staticData";
 ---
 
-<header class="text-center py-5 relative">
-  <div class="absolute inset-0 -z-10 grid grid-cols-2">
-    <div class="bg-[url('/src/assets/bg.svg')]">
-      <div class="from-transparent to-inv-bg-light bg-gradient-to-br h-full">
-      </div>
-    </div>
-    <div
-      class="from-inv-primary/30 via-inv-primary/25 to-inv-primary/15 bg-gradient-to-l blur-3xl h-1/2"
-    >
-    </div>
-  </div>
+<header class="text-center pt-5 pb-28 relative">
   <section class="mt-12">
     <Container>
-      <div class="grid grid-cols-4 gap-7">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-7">
         {
           EVENT_CATEGORIES.map((category) => (
             <CardImage {...category} href="#designs" hoverEffect="rotate" />
@@ -32,12 +22,24 @@ import { EVENT_CATEGORIES } from "@utils/staticData";
       </div>
     </Container>
   </section>
-  <div class="max-w-3xl mx-auto mt-16">
-    <h1 class="font-semibold text-7xl mb-3">
+  <div class="max-w-3/4 md:max-w-3xl mx-auto mt-16">
+    <h1 class="font-semibold text-3xl md:text-7xl mb-3">
       🪅Invita.<span class="font-light">me</span>
     </h1>
-    <h2 class="font-semibold text-6xl">
+    <h2 class="font-semibold text-2xl md:text-6xl">
       Todo gran plan empieza con una gran invitación.
     </h2>
+  </div>
+  <div class="absolute inset-0 -z-10 grid grid-cols-2">
+    <div class="bg-[url('/src/assets/bg.svg')]">
+      <div
+        class="from-transparent via-80% via-inv-bg-light to-inv-bg-light bg-radial h-full"
+      >
+      </div>
+    </div>
+    <div
+      class="from-inv-primary/30 via-inv-primary/25 to-inv-primary/15 bg-gradient-to-l blur-3xl h-1/2"
+    >
+    </div>
   </div>
 </header>
